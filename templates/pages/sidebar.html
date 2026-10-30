@@ -1,0 +1,62 @@
+<aside>
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <!-- Encabezado -->
+            <div class="side-header">
+                <div class="title-company">
+                    <i class="fa fa-circle-o-notch text-info me-2"></i> MY STORE
+                </div>
+                <div class="content-data mt-2">
+                    <i class="fa fa-user-circle text-primary me-2"></i> miamd
+                </div>
+                <div class="content-data mt-1">
+                    <i class="fa fa-bolt text-info me-2"></i> Administrador
+                </div>
+            </div>
+            
+            <!-- Cuerpo del menú -->
+            <div class="side-body">
+                <!-- HOME (Arreglado con <span>) -->
+                <a href="{% url 'listar_productos' %}" class="nav-link-custom">
+                    <div class="d-flex align-items-center">
+                        <i class="fa fa-home text-info me-3"></i> 
+                        <span>HOME</span>
+                    </div>
+                </a>
+
+                <!-- PRODUCTOS -->
+                <a class="nav-link-custom" data-bs-toggle="collapse" href="#menuProductos" role="button" aria-expanded="true" aria-controls="menuProductos">
+                    <div class="d-flex align-items-center">
+                        <i class="fa fa-cubes text-info me-3"></i> 
+                        <span>Productos</span>
+                    </div>
+                    <i class="fa fa-caret-down"></i>
+                </a>
+                
+                <!-- Submenú -->
+                <div class="collapse show" id="menuProductos">
+                    <ul class="submenu-list">
+                        <li>
+                            <a href="{% url 'crear_producto' %}" class="submenu-item">
+                                <i class="fa fa-caret-right me-2"></i> Agregar producto
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'listar_productos' %}" class="submenu-item active">
+                                <i class="fa fa-caret-right me-2"></i> Listar productos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- SALIR (Arreglado con <span>) -->
+                <a href="{% url 'login' %}" class="nav-link-custom text-danger mt-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fa fa-power-off me-3"></i> 
+                        <span>SALIR</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,17 @@
+{% extends 'plantilla.html' %}
+{% block content %}
+<div class="card mt-4 col-md-6 mx-auto">
+    <div class="card-header bg-danger text-white">
+        <h4 class="mb-0">ELIMINAR PRODUCTO</h4>
+    </div>
+    <div class="card-body text-center">
+        <h5 class="card-title">¿Estás seguro de eliminar el producto?</h5>
+        <p class="card-text">"{{ object.nombre }}"</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            <a href="{% url 'listar_productos' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

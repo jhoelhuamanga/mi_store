@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de Sesión - My Store</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+    
+    <!-- Tu CSS personalizado -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/sidebar.css' %}" />
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="row g-0">
+                    <!-- Columna Izquierda: Imagen -->
+                    <div class="col-md-5 d-none d-md-flex align-items-center justify-content-center bg-light rounded-start-4 p-4">
+                        <!-- Ruta corregida incluyendo la carpeta 'img' -->
+                        <img src="{% static 'img/login-image.jpe' %}" alt="Login" class="img-fluid" style="max-height: 280px; object-fit: contain;">
+                    </div>
+                    
+                    <!-- Columna Derecha: Formulario -->
+                    <div class="col-md-7 p-5">
+                        <h3 class="text-center mb-4 fw-bold">INICIO DE SESIÓN</h3>
+                        
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            
+                            <div class="mb-3">
+                                <label for="{{ form.username.id_for_label }}" class="form-label">Nombre de usuario:</label>
+                                {{ form.username }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="{{ form.password.id_for_label }}" class="form-label">Contraseña:</label>
+                                {{ form.password }}
+                            </div>
+
+                            <div class="d-grid gap-2 mt-4">
+                                <button type="submit" class="btn btn-primary">Ingresar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
