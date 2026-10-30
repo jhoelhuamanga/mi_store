@@ -4,6 +4,7 @@ Django settings for principal project.
 
 from pathlib import Path
 import os
+import certifi 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -65,8 +66,8 @@ DATABASES = {
         'NAME': 'mi_tienda',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': os.environ.get('MONGO_URL', 'mongodb://127.0.0.1:27017/') 
-            # En local usará localhost, en Render usará la variable MONGO_URL
+            'host': os.environ.get('MONGO_URL'),
+            'tlsCAFile': certifi.where(), # <-- ESTO ES LO NUEVO
         }
     }
 }
